@@ -68,6 +68,7 @@ namespace CardioanalisiLibrary
 
         public static string calcolo(string frequenza, string peso, string eta, string durata, ref string femmina)//pippi
         {
+            //3
             string risultato = "";
 
             try
@@ -113,7 +114,7 @@ namespace CardioanalisiLibrary
             return risultato;
         }
 
-        public static string allenamento(string allenamento, string Km, string peso)
+        public static string allenamento(string allenamento, string Km, string peso)//4
         {
             string calcolo = "";
 
@@ -150,5 +151,86 @@ namespace CardioanalisiLibrary
 
             return calcolo;
         }
+
+
+        public static string IsDetermined4(string battito01, string battito02, string battito03)
+        {
+            //numero 5
+            string risultato = "";
+            string media = "";
+            string frequenza = "";
+            string variabilità = "";
+            string primo = "";
+            string secondo = "";
+            string terzo = "";
+            double battitomedio = 0;
+            double min = 1000;
+            double max = 0;
+            double centrale = 0;
+            try
+            {
+                double battito1 = Convert.ToDouble(battito01);
+                double battito2 = Convert.ToDouble(battito02);
+                double battito3 = Convert.ToDouble(battito03);
+
+
+            battitomedio = Convert.ToUInt32((battito1 + battito2 + battito3) / 3);
+            
+                media = Convert.ToString(battitomedio);
+
+                if (battitomedio < 60)
+                {
+                    frequenza = "Bradicardia";
+                }
+
+                if (battitomedio >= 60 && battitomedio <= 100)
+                {
+                    frequenza = "Normale";
+                }
+
+                if (battitomedio > 100)
+                {
+                    frequenza = "Tachicardia";
+                }
+
+                if (min > battito1) min = battito1;
+                if (min > battito2) min = battito2;
+                if (min > battito3) min = battito3;
+
+                if (max < battito1) max = battito1;
+                if (max < battito2) max = battito2;
+                if (max < battito3) max = battito3;
+
+                variabilità = Convert.ToString(max - min);
+
+                if (battito1 != min)
+                {
+                    if (battito1 != max) centrale = battito1;
+                }
+                if (battito2 != min)
+                {
+                    if (battito2 != max) centrale = battito2;
+                }
+                if (battito3 != min)
+                {
+                    if (battito3 != max) centrale = battito3;
+                }
+
+
+                primo = Convert.ToString(min);
+                secondo = Convert.ToString(centrale);
+                terzo = Convert.ToString(max);
+
+                risultato = media + " " + frequenza + " " + variabilità + " " + primo + " " + secondo + " " + terzo;
+            }
+            catch
+            {
+                risultato = "attenzione devi inserire dei numeri";
+            }
+
+
+            return risultato;
+        }
+
     }
 }

@@ -82,5 +82,18 @@ namespace DataCardio.Test
             Assert.AreEqual(risultato, risultato2);
 
         }
+
+        [DataTestMethod]//5
+        [DataRow("85", "90", "88", "88 Normale 5 85 88 90")]
+        [DataRow("w", "90", "88", "attenzione devi inserire dei numeri")]
+        public void calcoli(string battito1,string battito2,string battito3,string risultato)//5
+        {
+
+           string risposta = CardioanalisiLibrary.DataCardio.IsDetermined4(battito1, battito2, battito3);
+
+            Assert.AreEqual(risposta, risultato);
+
+
+        }
     }
 }
