@@ -112,5 +112,43 @@ namespace CardioanalisiLibrary
 
             return risultato;
         }
+
+        public static string allenamento(string allenamento, string Km, string peso)
+        {
+            string calcolo = "";
+
+            try
+            {
+                int Km2 = Convert.ToInt32(Km);
+                int peso2 = Convert.ToInt32(peso);
+
+                if (peso2 == 0)
+                {
+                    calcolo = "non puoi inserire un peso sotto 0";
+                }
+                else if (allenamento.ToUpper() == "CORSA")
+                {
+                    calcolo = Convert.ToString(0.9 * Km2 * peso2);
+                }
+                else if (allenamento.ToUpper() == "CAMMINATA")
+                {
+                    calcolo = Convert.ToString(0.5 * Km2 * peso2);
+                }
+                else
+                {
+                    calcolo = "attenzione devi inserire o camminata o corsa";
+                }
+
+
+
+            }
+            catch
+            {
+                calcolo = "attenzione devi inserire dei numeri sui Km e sul peso";
+            }
+
+
+            return calcolo;
+        }
     }
 }

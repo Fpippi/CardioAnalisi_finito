@@ -70,5 +70,17 @@ namespace DataCardio.Test
             }
 
         }
+        [DataTestMethod]//4
+        [DataRow("camminata", "60", "10", "300")]
+        [DataRow("camminata", "0", "10", "non puoi inserire un peso sotto 0")]
+        [DataRow("cammin", "5", "10", "attenzione devi inserire o camminata o corsa")]
+        [DataRow("camminata", "w", "10", "attenzione devi inserire dei numeri sui Km e sul peso")]
+        [DataRow("corsa", "60", "10", "540")]
+        public void TestMethod4(string allenamento, string peso, string km, string risultato)
+        {
+            string risultato2 = CardioanalisiLibrary.DataCardio.allenamento(allenamento, km, peso);
+            Assert.AreEqual(risultato, risultato2);
+
+        }
     }
 }
