@@ -95,5 +95,24 @@ namespace DataCardio.Test
 
 
         }
+
+        //6
+        [DataTestMethod]//4
+        [DataRow("1,77", "80", "SOVRAPPESO")]
+        [DataRow("1,77", "60", "NORMOPESO")]
+        [DataRow("1,77", "55", "SOTTOPESO")]
+        [DataRow("1,77", "130", "OBESITA’ DI ALTO GRADO")]
+        [DataRow("1,77", "40", "GRAVE MAGREZZA")]
+        [DataRow("1,77", "100", "OBESITA’ DI MEDIO GRADO")]
+        [DataRow("w", "80", "devi inserire dei numeri")]
+        [DataRow("1,77", "w", "devi inserire dei numeri")]
+        [DataRow("-10", "80", "non puoi inserire numeri negativi")]
+        [DataRow("1,77", "-7", "non puoi inserire numeri negativi")]
+        public void TestMethod6(string altezza, string peso, string risultato)
+        {
+            string risultato2 = CardioanalisiLibrary.DataCardio.pesoideale(altezza, peso);
+            Assert.AreEqual(risultato, risultato2);
+
+        }
     }
 }

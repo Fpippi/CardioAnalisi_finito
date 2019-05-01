@@ -232,5 +232,42 @@ namespace CardioanalisiLibrary
             return risultato;
         }
 
+
+        public static string pesoideale(string altezza, string peso)//6
+        {
+            string risultato = "";
+
+            try
+            {
+                double peso2 = Convert.ToDouble(peso);
+                double altezza2 = Convert.ToDouble(altezza);
+
+                if (altezza2 <= 0 || peso2 <= 0)
+                {
+                    risultato = "non puoi inserire numeri negativi";
+                }
+                else
+                {
+                    double risultato2 = (peso2 / (altezza2 * altezza2));
+
+                    if (risultato2 > 40) risultato = "OBESITA’ DI ALTO GRADO";
+                    else if (risultato2 > 30 && risultato2 < 40) risultato = "OBESITA’ DI MEDIO GRADO";
+                    else if (risultato2 > 25 && risultato2 < 30) risultato = "SOVRAPPESO";
+                    else if (risultato2 > 18.5 && risultato2 < 25) risultato = "NORMOPESO";
+                    else if (risultato2 > 16 && risultato2 < 18.5) risultato = "SOTTOPESO";
+                    else risultato = "GRAVE MAGREZZA";
+
+
+                }
+
+            }
+            catch
+            {
+                risultato = "devi inserire dei numeri";
+            }
+
+
+            return risultato;
+        }
     }
 }
