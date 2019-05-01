@@ -8,7 +8,7 @@ namespace CardioanalisiLibrary
 {
     public class DataCardio
     {
-        public static string frequenzaMax_min(string eta, ref string min)//biagioni
+        public static string frequenzaMax_min(string eta, ref string min)//pacini
         {
             string risultato = "";
 
@@ -79,9 +79,9 @@ namespace CardioanalisiLibrary
                 int T = Convert.ToInt32(durata);
 
                 if (T <= 0) risultato = "attenzione non puoi inserire un eta uguale a 0 o inferiore";
-                else if (P <= 0) risultato = "attenzione non puoi inserire un eta uguale a 0 o inferiore";
-                else if (F <= 0) risultato = "attenzione non puoi inserire un eta uguale a 0 o inferiore";
-                else if (A <= 0) risultato = "attenzione non puoi inserire un eta uguale a 0 o inferiore";
+                else if (P <= 0) risultato = "attenzione non puoi inserire un peso uguale a 0 o inferiore";
+                else if (F <= 0) risultato = "attenzione non puoi inserire una frequenza uguale a 0 o inferiore";
+                else if (A <= 0) risultato = "attenzione non puoi inserire una durata uguale a 0 o inferiore";
                 else
                 {
 
