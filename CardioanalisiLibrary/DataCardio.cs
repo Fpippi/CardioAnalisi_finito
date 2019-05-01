@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CardioanalisiLibrary
 {
-    public class Class1
+    public class DataCardio
     {
 
     }
