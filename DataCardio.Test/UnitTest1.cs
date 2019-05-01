@@ -42,5 +42,33 @@ namespace DataCardio.Test
             string nome2 = CardioanalisiLibrary.DataCardio.frequenzanome(battiti);
             Assert.AreEqual(nome, nome2);
         }
+
+        [DataTestMethod] //3
+        [DataRow("w", "10", "20", "10", "non puoi inserire delle lettere", null)]
+        [DataRow("10", "w", "100", "10", "non puoi inserire delle lettere", null)]
+        [DataRow("10", "20", "w", "10", "non puoi inserire delle lettere", null)]
+        [DataRow("10", "20", "100", "w", "non puoi inserire delle lettere", null)]
+        [DataRow("0", "10", "10", "10", "attenzione non puoi inserire un eta uguale a 0 o inferiore", null)]
+        [DataRow("10", "10", "0", "10", "attenzione non puoi inserire un eta uguale a 0 o inferiore", null)]
+        [DataRow("10", "0", "30", "10", "attenzione non puoi inserire un eta uguale a 0 o inferiore", null)]
+        [DataRow("20", "10", "30", "0", "attenzione non puoi inserire un eta uguale a 0 o inferiore", null)]
+        [DataRow("10", "10", "10", "10", "Attenzione hai inserito dei dati non corretti", "Attenzione hai inserito dei dati non corretti")]
+        [DataRow("20", "110", "60", "60", "434,169694072658", "542,492351816444")]
+
+        public void TestMethod3(string eta, string frequenza, string peso, string durata, string maschio, string femmina)
+        {
+            string femmina2 = "";
+            string nome2 = CardioanalisiLibrary.DataCardio.calcolo(frequenza, peso, eta, durata, ref femmina2);
+            if (nome2 == "non puoi inserire delle lettere" || nome2 == "attenzione non puoi inserire un eta uguale a 0 o inferiore")
+            {
+                Assert.AreEqual(nome2, maschio);
+            }
+            else
+            {
+                Assert.AreEqual(nome2, maschio);
+                Assert.AreEqual(femmina, femmina2);
+            }
+
+        }
     }
 }
