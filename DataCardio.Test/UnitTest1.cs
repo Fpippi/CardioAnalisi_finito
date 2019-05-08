@@ -6,7 +6,7 @@ namespace DataCardio.Test
     [TestClass]
     public class UnitTest1
     {
-        [DataTestMethod] //1 
+        [DataTestMethod] //1 pacini
         [DataRow("w", "non puoi inserire delle lettere", null)]
         [DataRow("10", "189", "147")]
         [DataRow("0", "attenzione non puoi inserire un eta uguale a 0 o inferiore", null)]
@@ -34,7 +34,7 @@ namespace DataCardio.Test
         [DataTestMethod] //2 biagioni
         [DataRow("w", "non puoi inserire delle lettere")]
         [DataRow("50", "Bradicardia")]
-        [DataRow("0", "attenzione non puoi inserire un eta uguale a 0 o inferiore")]
+        [DataRow("0", "attenzione non puoi inserire una frequenza uguale a 0 o inferiore")]
         [DataRow("90", "Normale")]
         [DataRow("110", "Tachicardia")]
         public void TestMethod2(string battiti, string nome)
@@ -43,7 +43,7 @@ namespace DataCardio.Test
             Assert.AreEqual(nome, nome2);
         }
 
-        [DataTestMethod] //3 biagioni
+        [DataTestMethod] //3 pippi
         [DataRow("w", "10", "20", "10", "non puoi inserire delle lettere", null)]
         [DataRow("10", "w", "100", "10", "non puoi inserire delle lettere", null)]
         [DataRow("10", "20", "w", "10", "non puoi inserire delle lettere", null)]
@@ -70,7 +70,7 @@ namespace DataCardio.Test
             }
 
         }
-        [DataTestMethod]//4
+        [DataTestMethod]//4 biagioni
         [DataRow("camminata", "60", "10", "300")]
         [DataRow("camminata", "0", "10", "non puoi inserire un peso sotto 0")]
         [DataRow("cammin", "5", "10", "attenzione devi inserire o camminata o corsa")]
